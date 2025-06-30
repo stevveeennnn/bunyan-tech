@@ -1,82 +1,98 @@
-
 import React from 'react';
+import '../../textStyle.css';
+import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
+import { Link as ScrollLink } from 'react-scroll';
 
 const HeroSection = () => {
   return (
-    <section className="bg-white py-20 lg:py-32">
+    <motion.section
+      className="bg-white py-32 lg:py-60"
+      id="hero"
+      initial={{ opacity: 0, y: 100 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8, ease: [0.68, -0.55, 0.27, 1.55] }}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left Content */}
-          <div className="space-y-8">
-            <div className="space-y-6">
-              <h1 className="text-5xl lg:text-6xl font-bold leading-tight">
-                <span className="text-teal-500 italic">WE</span>
-                <span className="text-black"> Code</span>
-                <br />
-                <span className="text-black">Solutions.</span>
-                <br />
-                <span className="text-black">Market Success.</span>
-              </h1>
-              
-              <Button className="bg-teal-500 hover:bg-teal-600 text-white px-8 py-3 rounded-full font-medium text-lg flex items-center space-x-2 transition-all duration-200 hover:shadow-lg hover:scale-105">
-                <span>Next</span>
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </Button>
+          {/* Left Content with background */}
+          <motion.div
+            className="relative space-y-8"
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.68, -0.55, 0.27, 1.55] }}
+          >
+            {/* Background image behind text */}
+            <div
+              className="absolute inset-0 z-0 opacity-100 bg-no-repeat bg-contain bg-center pointer-events-none"
+              style={{
+                backgroundImage: 'url("/we_code_vector.png")', // ⬅️ Put your image in the public/ folder
+                height: '450px'
+              }}
+            ></div>
+
+            {/* Actual text content */}
+            <div className="relative z-10 space-y-6">
+              <div className="relative z-10 text-xl leading-relaxed max-w-lg">
+                <img src="we_code.png" alt="" />
+              </div>
+
+              <ScrollLink
+                to="about-us"
+                smooth={true}
+                duration={800}
+                offset={-60}
+              >
+                <Button className="mt-10 group bg-teal-500 text-white px-8 py-3 rounded-full font-medium text-lg flex items-center space-x-2 transition-all duration-300 ease-in-out transform hover:bg-white hover:text-teal-500 hover:scale-105 border-2 border-teal-500">
+                  <span className="transition-colors duration-300 group-hover:text-teal-500">Next</span>
+                  <svg
+                    className="w-5 h-5 transition-colors duration-300 group-hover:stroke-teal-500"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </Button>
+
+              </ScrollLink>
             </div>
 
-            <p className="text-gray-700 text-lg leading-relaxed max-w-lg">
-              We empower businesses to grow and succeed through innovative technology solutions and a seamless, full-cycle experience—from development and design to marketing and security.
+            <p 
+            className="custom-text relative z-10 text-xl leading-relaxed max-w-lg">
+              We empower businesses to grow and succeed through innovative technology solutions
+              and a seamless, full-cycle experience—from development and design to marketing and
+              security.
             </p>
-          </div>
+          </motion.div>
 
           {/* Right Illustration */}
-          <div className="relative">
-            <div className="relative bg-gradient-to-br from-teal-100 to-emerald-100 rounded-full w-full h-96 lg:h-[500px] flex items-center justify-center overflow-hidden">
-              {/* Isometric Illustration Container */}
-              <div className="relative w-full h-full flex items-center justify-center">
-                {/* Main illustration content will be positioned here */}
-                <div className="absolute inset-0 bg-gradient-to-br from-teal-200/30 to-emerald-200/30 rounded-full"></div>
-                
-                {/* Floating elements to simulate the isometric design */}
-                <div className="absolute top-20 right-20 w-16 h-16 bg-teal-400 rounded-lg transform rotate-12 opacity-80"></div>
-                <div className="absolute bottom-24 left-16 w-12 h-12 bg-emerald-400 rounded-full opacity-70"></div>
-                <div className="absolute top-32 left-20 w-8 h-8 bg-teal-300 rounded transform rotate-45"></div>
-                
-                {/* Central tech elements */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="relative">
-                    {/* Monitor representation */}
-                    <div className="w-32 h-20 bg-gray-800 rounded-lg relative mb-4">
-                      <div className="w-28 h-16 bg-teal-400 rounded m-2 flex items-center justify-center">
-                        <div className="text-white text-xs font-mono">&lt;/&gt;</div>
-                      </div>
-                    </div>
-                    
-                    {/* People figures */}
-                    <div className="absolute -right-16 -top-4 w-12 h-16 bg-orange-300 rounded-full"></div>
-                    <div className="absolute -left-12 -top-2 w-10 h-14 bg-blue-300 rounded-full"></div>
-                  </div>
-                </div>
-
-                {/* Tech badges */}
-                <div className="absolute bottom-16 right-12 bg-teal-500 text-white px-3 py-1 rounded text-sm font-medium">
-                  HTML
-                </div>
-                <div className="absolute top-16 right-8 bg-emerald-500 text-white px-3 py-1 rounded text-sm font-medium">
-                  JAVA
-                </div>
-                <div className="absolute bottom-20 left-8 bg-teal-600 text-white px-2 py-1 rounded text-xs">
-                  &lt;/&gt;
-                </div>
-              </div>
-            </div>
-          </div>
+          <motion.div
+            className="relative"
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.68, -0.55, 0.27, 1.55] }}
+          >
+            <img
+              src="we_code_background.png"
+              alt="Illustration"
+              className="w-full max-w-md mx-auto"
+              style={{
+                height: '450px',
+              }}
+            />
+          </motion.div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

@@ -103,3 +103,7 @@ All colors MUST be HSL.
     @apply bg-background text-foreground;
   }
 }
+
+.active-nav {
+  @apply text-teal-600 font-bold border-b-2 border-teal-600;
+}

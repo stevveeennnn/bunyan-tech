@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'Cocogoose-Pro-Light-trial';
+    src: url('../simple-react-landing-start/src/fonts/Cocogoose-Pro-Light-trial.ttf') format('truetype');
+}
+
+.custom-text {
+    font-family: 'Cocogoose-Pro-Light-trial', sans-serif;
+}
