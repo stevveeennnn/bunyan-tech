@@ -5,10 +5,7 @@ import { componentTagger } from "lovable-tagger";
 
 export default defineConfig(({ mode }) => ({
   base: '/bunyan-tech/',
-<<<<<<< HEAD
 
-=======
->>>>>>> 947af29 (fix: set correct base path for GitHub Pages)
   server: {
     host: "::",
     port: 8080,
